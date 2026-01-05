@@ -1,5 +1,13 @@
-export default function ProjectDetailPage() {
-    return(
-        <h1> Projects Page </h1>
-    )
+import ProjectDetail from "../components/ProjectDetail";
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  return (
+    <div className="w-full">
+      <ProjectDetail projectId={id} />
+    </div>
+  );
 }

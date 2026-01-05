@@ -5,7 +5,7 @@ export async function fetchProjects() {
   if (!response.ok) throw new Error("Failed to fetch projects")
   return response.json()
 }
-
+ 
 export async function fetchProject(id: string) {
   const response = await fetch(`${API_BASE_URL}/projects/${id}`)
   if (!response.ok) throw new Error("Project not found")
