@@ -67,6 +67,7 @@ export default async function DashboardPage() {
         <div className="mt-5">
           <RecentlyProjects projects={projects} />
         </div>
+        
       </div>
     </main>
   );
