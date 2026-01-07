@@ -9,9 +9,12 @@ export const queryClient = new QueryClient({
   },
 })
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> chanrady
