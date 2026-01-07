@@ -1,7 +1,7 @@
 "use client";
 
 import { useProjects } from "@/hooks/use-queries";
-import { Bell, Loader2, Calendar } from "lucide-react";
+import { Bell, Loader2, Calendar, Plus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -9,7 +9,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 
 export default function ProjectsList() {
-  
   const { data: projects = [], isLoading, error } = useProjects();
 
   if (isLoading) {
@@ -79,10 +78,13 @@ export default function ProjectsList() {
             <Button variant="ghost" size="icon">
               <Bell className="w-5 h-5" />
             </Button>
-            <Button className="bg-gray-900 hover:bg-gray-800">
-              <span className="mr-2">+</span>
+            <Link
+              href={"/projects/new"}
+              className="py-2 px-4  cursor-pointer flex items-center gap-1 hover:bg-opacity-80 hover:text-gray-300 rounded bg-black text-white"
+            >
+              <Plus className="inline mr-2" />
               New Project
-            </Button>
+            </Link>
           </div>
         </div>
       </header>

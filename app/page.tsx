@@ -45,10 +45,12 @@ export default async function DashboardPage() {
             <Button variant="ghost" size="icon">
               <Bell className="w-5 h-5" />
             </Button>
-            <Link href="/tasks/new">
-              <button className="bg-black text-white px-4 py-2 shadow rounded-md hover:bg-gray-700 hover:scale-105 transition-transform">
-                <Plus className="inline mr-2" /> New Task
-              </button>
+            <Link
+              href={"/tasks/new"}
+              className="py-2 px-4  cursor-pointer flex items-center gap-1 hover:bg-opacity-80 hover:text-gray-300 rounded bg-black text-white"
+            >
+              <Plus className="inline mr-2" />
+              New Task
             </Link>
           </div>
         </div>
