@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from "react";
 
 import { fetchProjects, fetchTasks } from "@/lib/api";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import RecentlyTasks from "./components/recentlytasks";
 import RecentlyProjects from "./components/recentlyprojects";
 import TaskSummary from "./components/TaskSummary";
-import { Skeletons } from "./components/skeleton";
+// import { Skeletons } from "./components/skeleton";
 
 export default async function DashboardPage() {
   const tasks = await fetchTasks();
@@ -46,11 +46,4 @@ export default async function DashboardPage() {
       </div>
     </main>
   );
-=======
-export default function DashboardPage() {
-return (
-        <div></div>
-    
-);
->>>>>>> bunleng
 }
