@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/app/providers";
 import "./globals.css";
+import SidebarPage from "./sidebars/SidebarSection";
 
 export const metadata: Metadata = {
   title: "TaskFlow",
@@ -14,13 +15,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+ return (
     <html lang="en">
       <body className="font-sans antialiased">
-        <Providers> 
-        
-          
-          {children}
+        <Providers>
+          <SidebarPage>
+            <div className="flex min-h-screen w-full">{children}</div>
+          </SidebarPage>
         </Providers>
         <Analytics />
       </body>
