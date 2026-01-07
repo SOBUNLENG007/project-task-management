@@ -6,6 +6,7 @@ import Link from "next/link";
 import RecentlyTasks from "./components/recentlytasks";
 import RecentlyProjects from "./components/recentlyprojects";
 import TaskSummary from "./components/TaskSummary";
+import { Skeletons } from "./components/skeleton";
 
 export default async function DashboardPage() {
   const tasks = await fetchTasks();
