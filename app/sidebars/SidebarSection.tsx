@@ -21,6 +21,9 @@ export default function SidebarPage({
   const { data: projects = [] } = useProjects();
   const pathname = usePathname();
 
+  const isActive = (path: string) =>
+    pathname === path || pathname.startsWith(`${path}/`);
+
   return (
     <div className="flex h-screen bg-background">
       {/* Sidebar */}
@@ -52,25 +55,33 @@ export default function SidebarPage({
             <Link href="/">
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-3 hover:bg-accent"
+                className={`w-full justify-start gap-3 ${
+                  isActive("/") ? "bg-accent" : "hover:bg-accent"
+                }`}
               >
                 <LayoutDashboard className="w-4 h-4" />
                 Dashboard
               </Button>
             </Link>
+
             <Link href="/tasks">
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-3 hover:bg-accent"
+                className={`w-full justify-start gap-3 ${
+                  isActive("/tasks") ? "bg-accent" : "hover:bg-accent"
+                }`}
               >
                 <CheckSquare className="w-4 h-4" />
                 Tasks
               </Button>
             </Link>
+
             <Link href="/projects">
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-3 bg-accent"
+                className={`w-full justify-start gap-3 ${
+                  isActive("/projects") ? "bg-accent" : "hover:bg-accent"
+                }`}
               >
                 <FolderOpen className="w-4 h-4" />
                 Projects
@@ -100,7 +111,7 @@ export default function SidebarPage({
                 </Link>
               );
             })}
-          </div> 
+          </div>
         </nav>
 
         {/* User Profile Footer */}
