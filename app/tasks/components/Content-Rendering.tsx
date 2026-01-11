@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import Subtask from './Subtask'
 import Comment from './Comment'
 import SortingComponent from './Sorting'
-import { useTask } from '@/hooks/use-queries'
+import { useTask} from '@/hooks/use-queries'
 import { Item, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item'
-import { Calendar, Clock1, Dot, Tag, User, UserRoundPlus } from 'lucide-react'
+import { Calendar, Clock1, Dot, Tag, User, UserRoundPlus, Trash2 } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BreadcrumbTask } from './Breadcrumb-Task'
 import SkeletonTaskDetail from './SkeletonTaskDetail'
+import { useHandleDeleteTask } from './HandleDeleteTask'
+
 
 type ChildrenProps = {
     id: string
@@ -32,8 +34,7 @@ const items = [
 export default function ContentRendering({ id }: ChildrenProps) {
     const [status, setStatus] = useState<StatusProp>({ name: "Subtask", url: "subtask" });
     const {  data, isLoading, error } = useTask(id)
-
-
+    const { handleDelete, isPending } = useHandleDeleteTask()
 
     // if(isLoading)return <div>Loading...</div>
     if(isLoading)return <SkeletonTaskDetail/>
@@ -43,7 +44,17 @@ export default function ContentRendering({ id }: ChildrenProps) {
             <BreadcrumbTask id={id}/>
             <Item className="h-auto py-1 px-4">
                 <ItemContent className="">
-                    <ItemTitle className="text-xl font-bold">{data?.title}</ItemTitle>
+                    <div className="flex items-center justify-between">
+                        <ItemTitle className="text-xl font-bold">{data?.title}</ItemTitle>
+                        <button
+                            onClick={() => handleDelete(id)}
+                            disabled={isPending}
+                            className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            title="Delete task"
+                        >
+                            <Trash2 size={20} />
+                        </button>
+                    </div>
                     <ItemDescription className="text-sm">{data?.description}</ItemDescription>
                 </ItemContent>
             </Item>

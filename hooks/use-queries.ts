@@ -1,6 +1,6 @@
 "use client"
 
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import * as api  from "@/lib/api"
 import type { Project, Task } from "@/lib/types"
 
@@ -65,4 +65,16 @@ export function useTasksByProject(projectId: string) {
     })
 
     return { data, isLoading, error }
+}
+
+export function useDeleteTask() {
+    const queryClient = useQueryClient()
+    
+    return useMutation({
+        mutationFn: (id: string) => api.deleteTask(id),
+        onSuccess: () => {
+            // Invalidate and refetch tasks
+            queryClient.invalidateQueries({ queryKey: ["tasks"] })
+        },
+    })
 }
