@@ -1,4 +1,6 @@
 const API_BASE_URL = "http://localhost:3001"
+import type { TaskFormValues } from "@/lib/validators/task"
+import { Subtask } from "./types"
 
 export async function fetchProjects() {
   const response = await fetch(`${API_BASE_URL}/projects`)
@@ -40,4 +42,27 @@ export async function getTask(id: string) {
 
 export async function getTasksByProject(projectId: string) {
   return fetchTasksByProject(projectId)
+}
+
+
+export async function createTask(data: TaskFormValues) {
+  const res = await fetch(`${API_BASE_URL}/tasks`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+
+  if (!res.ok) throw new Error("Failed to create task")
+  return res.json()
+}
+
+export async function updateTask(id: string, data: TaskFormValues) {
+  const res = await fetch(`${API_BASE_URL}/tasks/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+
+  if (!res.ok) throw new Error("Failed to update task")
+  return res.json()
 }

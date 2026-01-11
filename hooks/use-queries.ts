@@ -1,8 +1,10 @@
 "use client"
 
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient ,  } from "@tanstack/react-query"
 import * as api  from "@/lib/api"
 import type { Project, Task } from "@/lib/types"
+import { useRouter } from "next/dist/client/components/navigation"
+import { TaskFormValues } from "@/lib/validators/task"
 
 export function useProjects() {
    const {
@@ -65,4 +67,34 @@ export function useTasksByProject(projectId: string) {
     })
 
     return { data, isLoading, error }
+}
+
+
+export function useCreateTask() {
+  const qc = useQueryClient()
+  const router = useRouter()
+
+  return useMutation({
+    mutationFn: (data: TaskFormValues) => api.createTask(data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["tasks"] })
+      qc.invalidateQueries({ queryKey: ["projects"] })
+      router.push("/tasks")
+    },
+  })
+}
+
+export function useUpdateTask(id: string) {
+  const qc = useQueryClient()
+  const router = useRouter()
+
+  return useMutation({
+    mutationFn: (data: TaskFormValues) => api.updateTask(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["tasks"] })
+      qc.invalidateQueries({ queryKey: ["task", id] })
+      qc.invalidateQueries({ queryKey: ["projects"] })
+      router.push(`/tasks/${id}`)
+    },
+  })
 }

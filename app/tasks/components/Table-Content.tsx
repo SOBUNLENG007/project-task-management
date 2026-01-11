@@ -189,7 +189,7 @@ export function TableContent({
                                                     <Calendar size={18} className="text-gray-600" />
                                                     <span className=" p-0.5 flex items-center justify-center text-xs bg-white/10 backdrop-blur-sm  border border-gray-300 text-gray-800  rounded-full">
                                                         {
-                                                            task.dueDate
+                                                            task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : '-'
                                                         }
                                                     </span>
                                                 </div>
