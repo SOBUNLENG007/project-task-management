@@ -1,6 +1,8 @@
 "use client"
 
-import { useMutation, useQuery, useQueryClient ,  } from "@tanstack/react-query"
+
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
+
 import * as api  from "@/lib/api"
 import type { Project, Task } from "@/lib/types"
 import { useRouter } from "next/dist/client/components/navigation"
@@ -70,6 +72,7 @@ export function useTasksByProject(projectId: string) {
 }
 
 
+
 export function useCreateTask() {
   const qc = useQueryClient()
   const router = useRouter()
@@ -97,4 +100,16 @@ export function useUpdateTask(id: string) {
       router.push(`/tasks/${id}`)
     },
   })
+}
+export function useDeleteTask() {
+    const queryClient = useQueryClient()
+    
+    return useMutation({
+        mutationFn: (id: string) => api.deleteTask(id),
+        onSuccess: () => {
+            // Invalidate and refetch tasks
+            queryClient.invalidateQueries({ queryKey: ["tasks"] })
+        },
+    })
+
 }
