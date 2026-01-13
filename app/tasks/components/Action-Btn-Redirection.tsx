@@ -11,6 +11,7 @@ import {
 import { MoreHorizontalIcon } from "lucide-react";
 import Link from "next/link";
 import { useDeleteTask } from "@/hooks/use-queries";
+import Swal from "sweetalert2";
 
 interface childProps {
   id: string;
@@ -50,16 +51,24 @@ export function ActionBtnRedirect({ id }: childProps) {
           className="text-red-600 focus:text-red-600 hover:text-red-600"
           disabled={deleteTaskMutation.isPending}
           onClick={async () => {
-            const confirmed = window.confirm(
-              "Are you sure you want to delete this task?"
-            );
-            if (confirmed) {
+            const result = await Swal.fire({
+              title: "Are you sure?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#d33",
+              cancelButtonColor: "#3085d6",
+              confirmButtonText: "Yes, delete it!",
+              cancelButtonText: "Cancel",
+            });
+
+            if (result.isConfirmed) {
               try {
                 await deleteTaskMutation.mutateAsync(id);
-                // The mutation will handle invalidating queries and updating the UI
+                Swal.fire("Deleted!", "Your task has been deleted.", "success");
               } catch (error) {
                 console.error("Failed to delete task:", error);
-                // You might want to show an error message to the user here
+                Swal.fire("Error", "Failed to delete task.", "error");
               }
             }
           }}

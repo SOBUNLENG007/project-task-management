@@ -37,13 +37,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { useRouter } from "next/navigation";
 import { CalendarIcon, Trash2, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
+import Swal from "sweetalert2";
 
 // Sample data for tags and assignees
 const presetTags = [
@@ -68,7 +69,7 @@ const presetAssignees = [
 export default function CreateTaskPage() {
   const createTaskMutation = useCreateTask();
   const { data: projects = [], isLoading: projectsLoading } = useProjects();
-
+  const router = useRouter();
   const form = useForm<TaskFormValues>({
     resolver: zodResolver(taskSchema),
     defaultValues: {
@@ -91,12 +92,17 @@ export default function CreateTaskPage() {
   });
 
   const onSubmit = async (data: TaskFormValues) => {
-    try {
-      console.log("Submitting task data:", data);
-      await createTaskMutation.mutateAsync(data);
-    } catch (error) {
-      console.error("Failed to create task:", error);
-    }
+
+      try {
+        await createTaskMutation.mutateAsync(data);
+        Swal.fire("Success!", "Your task has been created.", "success");
+        router.push("/tasks");
+      } catch (error) {
+        console.error("Failed to create task:", error);
+        Swal.fire("Error", "Failed to create task.", "error");
+      }
+    
+    createTaskMutation.mutate(data);
   };
 
   const handleAddSubtask = () => {
