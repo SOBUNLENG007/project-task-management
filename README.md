@@ -10,7 +10,7 @@
 - **Framework:** Next.js 16+ (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 
-- **UI Components:** shadcn/ui
+- **UI Components:** shadcn/ui, Antd design
 - **Data Fetching:** tanstack
 - **Backend:** JSON Server (mock API)
 - **Date Handling:** date-fns
