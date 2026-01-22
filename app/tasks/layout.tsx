@@ -53,7 +53,7 @@ export default function Layout({
           </div>
         </div>
       </header>
-      <div className="p-6 flex flex-col w-full ">{children}</div>
+      <div className="p-6 flex flex-col w-full pt-25">{children}</div>
     </div>
   );
 }
