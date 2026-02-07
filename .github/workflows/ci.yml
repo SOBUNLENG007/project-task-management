@@ -25,7 +25,7 @@ jobs:
 
       - name: prittier format fix
         run: npm run formater
-        
+
       - name: Prettier format check
         run: npm run format:check
 
