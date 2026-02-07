@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3001";
+const API_BASE_URL = "https://json-api-self-server.vercel.app";
 import type { TaskFormValues } from "@/lib/validators/task";
 import { Subtask } from "./types";
 import { TaskUpdateFormValues } from "./validators/taskUpdateSchema";
