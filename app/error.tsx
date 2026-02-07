@@ -13,13 +13,14 @@ export default function Error({
   useEffect(() => {
     console.error("Error caught in error boundary:", error);
   }, [error]);
-  return (
-    <div className="p-8 text-center w-full">
-      <EmptyTable
-        title="Error fetching data"
-        description="Something went wrong"
-        icon={Ban}
-      />
-    </div>
-  );
+            return (
+              <div className="p-8 text-center w-full">
+                <EmptyTable
+                  title="Error fetching data"
+                  description="Something went wrong"
+                  icon={Ban}
+                />
+              </div>
+            );
 }
+              
