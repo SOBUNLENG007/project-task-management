@@ -16,7 +16,7 @@ export default function TaskSummary({ tasks }: { tasks: Task[] }) {
   const inProgress = tasks.filter((t) => t.status === "in-progress").length;
   // const todo = tasks.filter((t) => t.status === "todo").length;
   const overdue = tasks.filter(
-    (t) => t.dueDate < new Date().toISOString() && t.status !== "done"
+    (t) => t.dueDate < new Date().toISOString() && t.status !== "done",
   ).length;
 
   return (

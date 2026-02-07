@@ -34,10 +34,7 @@ export default function RecentlyProjects({
         </div>
         <ul className="space-y-2 sm:space-y-4">
           {projects.slice(0, 5).map((project) => (
-            <li
-              key={project.id}
-              className="border p-4 rounded-lg"
-            >
+            <li key={project.id} className="border p-4 rounded-lg">
               <div className="flex items-baseline justify-around">
                 <input type="checkbox" />
                 <CardHeader>#{project.id}</CardHeader>

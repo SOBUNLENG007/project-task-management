@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 import {
   Select,
@@ -8,11 +8,11 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
 export function SelectItems() {
   return (
-    <Select >
+    <Select>
       <SelectTrigger className="w-full">
         <SelectValue placeholder="Select tags" />
       </SelectTrigger>
@@ -27,5 +27,5 @@ export function SelectItems() {
         </SelectGroup>
       </SelectContent>
     </Select>
-  )
+  );
 }

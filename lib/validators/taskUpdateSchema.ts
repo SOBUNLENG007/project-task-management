@@ -1,18 +1,17 @@
-import z from "zod"
-
+import z from "zod";
 
 const subtaskSchema = z.object({
   id: z.string().optional(),
   title: z.string(),
   completed: z.boolean(),
-})
+});
 
 const commentSchema = z.object({
   id: z.string().optional(),
   content: z.string(),
   author: z.string(),
   createdAt: z.string().optional(),
-})
+});
 
 export const taskUpdateSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -25,5 +24,5 @@ export const taskUpdateSchema = z.object({
   assignee: z.string(),
   subtasks: z.array(subtaskSchema),
   comments: z.array(commentSchema),
-})
-export type TaskUpdateFormValues = z.infer<typeof taskUpdateSchema>
+});
+export type TaskUpdateFormValues = z.infer<typeof taskUpdateSchema>;

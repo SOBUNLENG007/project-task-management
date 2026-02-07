@@ -1,11 +1,7 @@
-"use client"
+"use client";
 
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@/components/ui/progress";
 
-export function ProgressBar({percentag}: {percentag: number}) {
-
-
-  return <Progress value={percentag}  className="" />
+export function ProgressBar({ percentag }: { percentag: number }) {
+  return <Progress value={percentag} className="" />;
 }
-
-

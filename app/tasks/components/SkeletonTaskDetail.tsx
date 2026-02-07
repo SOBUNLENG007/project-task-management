@@ -1,5 +1,5 @@
 // components/task-detail-skeleton.tsx
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function SkeletonTaskDetail() {
   return (
@@ -14,7 +14,6 @@ export default function SkeletonTaskDetail() {
       </div>
 
       <div className="flex flex-col gap-3 mt-4">
-
         {/* Priority + Following */}
         <div className="flex justify-between items-center px-4">
           <div className="flex items-center gap-2">
@@ -71,8 +70,7 @@ export default function SkeletonTaskDetail() {
           <Skeleton className="h-20 w-full rounded-md" />
           <Skeleton className="h-20 w-full rounded-md" />
         </div>
-
       </div>
     </>
-  )
+  );
 }

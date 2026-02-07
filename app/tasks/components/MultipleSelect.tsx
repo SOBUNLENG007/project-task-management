@@ -1,8 +1,8 @@
-import React from 'react';
-import { Select } from 'antd';
-import type { SelectProps } from 'antd';
+import React from "react";
+import { Select } from "antd";
+import type { SelectProps } from "antd";
 
-const options: SelectProps['options'] = [];
+const options: SelectProps["options"] = [];
 
 for (let i = 10; i < 36; i++) {
   options.push({
@@ -18,8 +18,7 @@ const handleChange = (value: string[]) => {
 const MultipleSelect: React.FC = () => (
   <Select
     mode="tags"
-    
-    style={{ width: '100%', height:'40px'}}
+    style={{ width: "100%", height: "40px" }}
     placeholder="Tags Mode"
     onChange={handleChange}
     options={options}

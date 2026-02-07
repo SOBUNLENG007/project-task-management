@@ -37,10 +37,7 @@ export default function RecentlyTasks({ tasks }: { tasks: Task[] }) {
         <div>
           <ul className="space-y-2 sm:space-y-4">
             {tasks.slice(0, 5).map((task) => (
-              <li
-                key={task.id}
-                className="border p-4 rounded-lg"
-              >
+              <li key={task.id} className="border p-4 rounded-lg">
                 <div className="flex items-baseline justify-around">
                   <input type="checkbox" />
                   <CardHeader>#{task.id}</CardHeader>

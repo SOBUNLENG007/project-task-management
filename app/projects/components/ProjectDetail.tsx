@@ -26,7 +26,7 @@ export default function ProjectDetail({ projectId }: ProjectDetailProps) {
     error: tasksError,
   } = useTasksByProject(projectId);
   const [activeTab, setActiveTab] = useState<"all" | "active" | "completed">(
-    "all"
+    "all",
   );
 
   if (projectLoading || tasksLoading) {
@@ -63,7 +63,7 @@ export default function ProjectDetail({ projectId }: ProjectDetailProps) {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((t) => t.status === "done").length;
   const inProgressTasks = tasks.filter(
-    (t) => t.status === "in-progress"
+    (t) => t.status === "in-progress",
   ).length;
   const todoTasks = tasks.filter((t) => t.status === "todo").length;
 

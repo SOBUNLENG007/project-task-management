@@ -13,4 +13,3 @@ export default async function TaskDetailPage({ params }: ChildrenProp) {
     </div>
   );
 }
- 

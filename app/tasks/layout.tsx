@@ -36,9 +36,7 @@ export default function Layout({
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Tasks</h1>
-            <p className="text-sm text-gray-500 mt-1">
-              {data.length} tasks
-            </p>
+            <p className="text-sm text-gray-500 mt-1">{data.length} tasks</p>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="icon">
@@ -55,7 +53,7 @@ export default function Layout({
         </div>
       </header>
       <div className="p-6 flex flex-col w-full pt-25">{children}</div>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 }

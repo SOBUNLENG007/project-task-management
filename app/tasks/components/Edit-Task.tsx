@@ -306,7 +306,7 @@ export function EditTask({ id }: { id: string }) {
                         htmlFor={`subtask-${field.id}`}
                         className={cn(
                           "text-sm font-medium cursor-pointer flex-1 select-none",
-                          value && "text-muted-foreground/80"
+                          value && "text-muted-foreground/80",
                         )}
                       >
                         {field.title ?? `Subtask ${index + 1}`}

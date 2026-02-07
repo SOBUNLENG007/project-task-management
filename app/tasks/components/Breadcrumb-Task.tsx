@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { SlashIcon } from "lucide-react"
+import Link from "next/link";
+import { SlashIcon } from "lucide-react";
 
 import {
   Breadcrumb,
@@ -8,9 +8,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/components/ui/breadcrumb";
 
-export function BreadcrumbTask({id}: {id: string}) {
+export function BreadcrumbTask({ id }: { id: string }) {
   return (
     <Breadcrumb className="mb-3">
       <BreadcrumbList>
@@ -29,5 +29,5 @@ export function BreadcrumbTask({id}: {id: string}) {
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
-  )
+  );
 }

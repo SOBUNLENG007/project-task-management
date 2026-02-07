@@ -20,11 +20,11 @@ export function ToggleSwitch<T extends string>({
   options,
   value,
   setToggle,
-  className = ""
+  className = "",
 }: ToggleSwitchProps<T>) {
   const optionCount = options.length;
   const optionWidth = 100 / optionCount;
-  const activeIndex = options.findIndex(opt => opt.value === value);
+  const activeIndex = options.findIndex((opt) => opt.value === value);
 
   return (
     <div className={`rounded-sm  ${className}`}>
@@ -34,11 +34,11 @@ export function ToggleSwitch<T extends string>({
           className={`
             absolute h-full rounded-sm
             transition-all duration-350 ease-[cubic-bezier(0.65,0,0.35,1)]
-            ${options[activeIndex]?.color || 'bg-gray-600'}
+            ${options[activeIndex]?.color || "bg-gray-600"}
           `}
           style={{
             width: `${optionWidth}%`,
-            left: `${activeIndex * optionWidth}%`
+            left: `${activeIndex * optionWidth}%`,
           }}
         />
 
@@ -50,7 +50,7 @@ export function ToggleSwitch<T extends string>({
             onClick={() => setToggle(option.value)}
             className={`
               flex-1 text-sm text-center leading-10 cursor-pointer z-10 transition-colors
-              ${value === option.value ? 'text-white font-medium' : 'text-gray-600'}
+              ${value === option.value ? "text-white font-medium" : "text-gray-600"}
             `}
           >
             {option.label}

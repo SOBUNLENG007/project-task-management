@@ -123,7 +123,7 @@ export default function ProjectsList() {
                 <Progress
                   value={calculateProgress(
                     project.tasksCompleted,
-                    project.tasksTotal
+                    project.tasksTotal,
                   )}
                   className="h-1.5 mt-1"
                 />

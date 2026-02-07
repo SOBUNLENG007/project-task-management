@@ -1,15 +1,17 @@
 # TaskFlow - Task Management Application
 
 ## Team Members
+
 - Phorn Rothana
 - Yeourn Kimsan
 - So Bunleng
 - Chory Chanrady
 
 ## Tech Stack
+
 - **Framework:** Next.js 16+ (App Router)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS 
+- **Styling:** Tailwind CSS
 - **UI Components:** shadcn/ui, Antd design
 - **Data Fetching:** tanstack
 - **Backend:** JSON Server (mock API)
@@ -20,7 +22,8 @@
 ## Features
 
 ### Pages
-1. **Dashboard** (`/`) - Overview with statistics and recent tasks  
+
+1. **Dashboard** (`/`) - Overview with statistics and recent tasks
 2. **Tasks List** (`/tasks`) - Filterable task view with status filters
 3. **Task Detail** (`/tasks/[id]`) - Detailed task view with subtasks and comments
 4. **Create Task** (`/tasks/new`) - Form to create new tasks
@@ -28,16 +31,14 @@
 6. **Projects List** (`/projects`) - Grid view of all projects with progress
 7. **Project Detail** (`/projects/[id]`) - Project overview with task list
 
-
-
 ```bash
 npm run dev
 ```
 
 This will:
+
 - Start Next.js dev server on `http://localhost:3000`
 - Start JSON Server on `http://localhost:3001`
-
 
 ## API Endpoints
 

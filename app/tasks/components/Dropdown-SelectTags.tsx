@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { type DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
+import * as React from "react";
+import { type DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -11,19 +11,21 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
-type Checked = DropdownMenuCheckboxItemProps["checked"]
+type Checked = DropdownMenuCheckboxItemProps["checked"];
 
 export function DropdownSelectTags() {
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
-  const [showPanel, setShowPanel] = React.useState<Checked>(false)
+  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
+  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
+  const [showPanel, setShowPanel] = React.useState<Checked>(false);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="w-full text-gray-700 bg-transparent border text-start">Select Tags</Button>
+        <Button className="w-full text-gray-700 bg-transparent border text-start">
+          Select Tags
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Tags</DropdownMenuLabel>
@@ -49,5 +51,5 @@ export function DropdownSelectTags() {
         </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

@@ -66,10 +66,7 @@
       "priority": "low",
       "status": "done",
       "dueDate": "2026-01-15T00:00:00.000Z",
-      "tags": [
-        "urgent",
-        "accessibility"
-      ],
+      "tags": ["urgent", "accessibility"],
       "assignee": "phorn-rothana",
       "subtasks": [
         {
@@ -91,11 +88,7 @@
       "priority": "high",
       "status": "todo",
       "dueDate": "2026-01-13T18:19:06.929Z",
-      "tags": [
-        "documentation",
-        "accessibility",
-        "research"
-      ],
+      "tags": ["documentation", "accessibility", "research"],
       "assignee": "yoeurn-kimsan",
       "subtasks": [],
       "comments": [],
@@ -108,10 +101,7 @@
       "priority": "low",
       "status": "done",
       "dueDate": "2026-01-14T13:50:25.223Z",
-      "tags": [
-        "accessibility",
-        "research"
-      ],
+      "tags": ["accessibility", "research"],
       "assignee": "so-bunleng",
       "subtasks": [],
       "comments": [],
