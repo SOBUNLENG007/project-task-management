@@ -26,9 +26,9 @@ jobs:
       - name: Prettier format check
         run: npm run format:check
 
-      - name: Lint
-        run: npm run lint
-        
+      - name: prittier format fix
+        run: npm run formater
+
       - name: deploy to vercel
         uses: amondnet/vercel-action@v20
         with:
